@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BDM Electrical & HVAC Service | Professional Electrician & Air Conditioning</title>
-  <meta name="description" content="24/7 Emergency Electrical & HVAC Services. Tesla Powerwall Certified Installer, Solar, Panel Upgrades, AC Repair. Call +1 (781) 816-8168">
+  <title>BDM Electrical & HVAC Service | Tesla Powerwall & Solar Expert</title>
+  <meta name="description" content="24/7 Emergency Electrical & HVAC Services in Massachusetts. Tesla Powerwall Certified, Solar, Panel Upgrades. Call +1 (781) 816-8168">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     :root{--primary:#0066cc;--secondary:#ff6b00;--dark:#1a1a1a}
@@ -13,7 +13,7 @@
     img{max-width:100%;display:block}
     a{text-decoration:none}
     header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,0.1)}
-    .top-bar{background:var(--primary);color:white;padding:10px 0;text-align:center;font-weight:bold;font-size:15px}
+    .top-bar{background:var(--primary);color:white;padding:10px 0;font-size:15px;font-weight:bold}
     .nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;height:80px}
     .logo{font-size:30px;font-weight:900;color:var(--primary)}
     .logo span{color:var(--secondary)}
@@ -24,7 +24,7 @@
     .hero-content{max-width:800px;margin:0 auto;padding:20px}
     .hero-content h1{font-size:3.8rem;margin-bottom:20px}
     .hero-content p{font-size:1.4rem;margin-bottom:30px}
-    .cta-btn{display:inline-block;background:var(--secondary);color:white;padding:18px 45px;border-radius:50px;font-size:1.3rem;margin:10px;transition:0.3s;box-shadow:0 10px 30px rgba(255,107,0,0.3)}
+    .cta-btn{display:inline-block;background:var(--secondary);color:white;padding:18px 45px;border-radius:50px;font-size:1.3rem;margin:10px;transition:0.3s}
     .cta-btn:hover{transform:translateY(-5px)}
     .emergency-btn{background:#c00 !important}
     section{padding:100px 20px}
@@ -35,33 +35,103 @@
     .service-card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:0.4s;text-align:center;padding:40px 20px}
     .service-card:hover{transform:translateY(-15px)}
     .service-card i{font-size:4rem;color:var(--primary);margin-bottom:20px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
     .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px}
     .gallery-item{border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.2);transition:0.3s}
     .gallery-item:hover{transform:scale(1.05)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+    form input,form textarea{width:100%;padding:15px;margin:10px 0;border:none;border-radius:8px;font-size:1rem}
+    form button{background:var(--secondary);color:white;padding:15px 40px;border:none;border-radius:50px;cursor:pointer}
+    footer{background:#111;color:#aaa;padding:40px 0;text-align:center}
     .floating-phone{position:fixed;bottom:90px;right:20px;background:var(--secondary);color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:999;animation:pulse 2s infinite}
     .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:35px;box-shadow:0 5px 20px rgba(37,211,102,0.5);z-index:999;animation:float 3s infinite}
     .whatsapp-float:hover,.floating-phone:hover{transform:scale(1.1)}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,107,0,0.7)}70%{box-shadow:0 0 0 20px rgba(255,107,0,0)}100%{box-shadow:0 0 0 0 rgba(255,107,0,0)}}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    footer{background:#111;color:#aaa;padding:40px 0;text-align:center}
+    @media(max-width:768px){.about-grid,.contact-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-  <!-- 顶部紧急栏 -->
   <div class="top-bar">
-    <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px">
       <span><i class="fas fa-phone-alt"></i> 24/7 Emergency: <strong>+1 (781) 816-8168</strong></span>
-      <span><i class="fab fa-whatsapp" style="color:#25D366;font-size:18px"></i> WhatsApp: <strong>+1 (781) 816-8168</strong></span>
+      <span><i class="fab fa-whatsapp" style="color:#25D366"></i> WhatsApp: <strong>+1 (781) 816-8168</strong></span>
       <span><i class="fas fa-envelope"></i> bdmelectricalhvac@gmail.com</span>
     </div>
   </div>
 
-  <!-- Header & Hero 略（保持原有） -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">BDM <span>Electrical & HVAC</span></div>
+      <nav>
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+17818168168" class="phone-btn"><i class="fas fa-phone"></i> Call Now</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- 联系方式区也全部改好 -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Professional Electrical & HVAC Services You Can Trust</h1>
+      <p>Licensed • Insured • Tesla Powerwall Certified • 24/7 Emergency • Massachusetts</p>
+      <a href="tel:+17818168168" class="cta-btn emergency-btn">Emergency Call Now</a>
+      <a href="https://wa.me/17818168168" class="cta-btn" style="background:#25D366">WhatsApp Quote</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2>Our <span>Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-bolt"></i><h3>Electrical Repairs & Installation</h3><p>Panel upgrades, wiring, lighting, EV chargers, generators</p></div>
+        <div class="service-card"><i class="fas fa-wind"></i><h3>Air Conditioning & Heating</h3><p>AC repair, installation, ductwork, maintenance</p></div>
+        <div class="service-card"><i class="fas fa-battery-full"></i><h3>Tesla Powerwall & Solar</h3><p>Certified installer for battery backup & solar systems</p></div>
+        <div class="service-card"><i class="fas fa-tools"></i><h3>24/7 Emergency Service</h3><p>No power? AC down? We arrive fast</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="background:#f9f9f9">
+    <div class="container about-grid">
+      <div>
+        <h2>Why Choose <span>BDM</span>?</h2>
+        <p>Licensed, insured, and trusted throughout Massachusetts since 2015.</p>
+        <ul style="margin:30px 0;line-height:2">
+          <li><i class="fas fa-check-circle" style="color:var(--primary)"></i> Tesla Powerwall Certified Installer</li>
+          <li><i class="fas fa-check-circle" style="color:var(--primary)"></i> 100% Satisfaction Guarantee</li>
+          <li><i class="fas fa-check-circle" style="color:var(--primary)"></i> Upfront Pricing</li>
+          <li><i class="fas fa-check-circle" style="color:var(--primary)"></i> Same-Day Service Available</li>
+        </ul>
+      </div>
+      <div><img src="about.jpg" alt="BDM Team"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Recent <span>Projects</span></h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="project1.jpg" alt="Tesla Powerwall"></div>
+        <div class="gallery-item"><img src="project2.jpg" alt="Structured Cabling"></div>
+        <div class="gallery-item"><img src="project3.jpg" alt="Battery System"></div>
+        <div class="gallery-item"><img src="project4.jpg" alt="Solar Panels"></div>
+        <div class="gallery-item"><img src="project5.jpg" alt="Commercial HVAC"></div>
+        <div class="gallery-item"><img src="project6.jpg" alt="Panel Upgrade"></div>
+        <div class="gallery-item"><img src="project7.jpg" alt="Main Panel"></div>
+        <div class="gallery-item"><img src="project8.jpg" alt="Conduit Work"></div>
+        <div class="gallery-item"><img src="project9.jpg" alt="Commercial Install"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="container">
+      <h2>Get Your <span>Free Quote</span></h2>
       <div class="contact-grid">
         <div>
           <h3>Contact Info</h3>
@@ -69,19 +139,29 @@
           <p><i class="fab fa-whatsapp" style="color:#25D366"></i> +1 (781) 816-8168</p>
           <p><i class="fas fa-envelope"></i> bdmelectricalhvac@gmail.com</p>
         </div>
-        <!-- 表单略 -->
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <input type="email" placeholder="Email">
+          <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
+          <button type="submit">Send – We'll Call You in 5 Minutes</button>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- 绿色 WhatsApp 浮动按钮 -->
-  <a href="https://wa.me/17818168168?text=Hi!%20I%20need%20electrical%20or%20HVAC%20service" class="whatsapp-float" target="_blank">
+  <footer>
+    <div class="container">
+      <p>© 2025 BDM Electrical & HVAC Service. All Rights Reserved. | Licensed & Insured</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/17818168168?text=Hi! I need electrical or HVAC service" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
-
-  <!-- 橙色电话浮动按钮 -->
   <a href="tel:+17818168168" class="floating-phone">
     <i class="fas fa-phone-alt"></i>
   </a>
+
 </body>
 </html>

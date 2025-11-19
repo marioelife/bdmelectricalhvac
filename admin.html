@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BDM Website Admin Panel</title>
+  <style>
+    body { font-family:Arial; padding:50px; background:#f4f4f4; }
+    .container { max-width:900px; margin:0 auto; background:white; padding:40px; border-radius:15px; box-shadow:0 0 30px rgba(0,0,0,0.1); }
+    input, button { padding:12px; margin:10px 0; width:100%; border-radius:8px; }
+    input[type=file] { padding:10px; }
+    button { background:#0066cc; color:white; border:none; cursor:pointer; font-size:1.1rem; }
+    .preview { max-width:300px; margin:20px 0; border:3px dashed #ccc; border-radius:10px; }
+    h2 { color:#0066cc; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>BDM Electrical & HVAC – 后台管理</h1>
+  <p>密码保护：bdm2025</p>
+  <input type="password" id="password" placeholder="输入密码进入" style="margin-bottom:30px;">
+  <div id="panel" style="display:none;">
+
+    <h2>1. 首页大图（Hero背景）</h2>
+    <label>上传新大图（建议1920×1080）</label>
+    <input type="file" id="hero1" accept="image/*">
+    <img id="hero1-preview" class="preview" src="assets/hero1.jpg">
+
+    <h2>2. “关于我们”图片</h2>
+    <input type="file" id="about" accept="image/*">
+    <img id="about-preview" class="preview" src="assets/about.jpg">
+
+    <h2>3. 项目案例图（可上传多张）</h2>
+    <input type="file" id="gallery-files" accept="image/*" multiple>
+    <div id="gallery-previews" style="display:flex; flex-wrap:wrap; gap:15px; margin-top:20px;"></div>
+
+    <button onclick="saveAll()">保存所有修改（永久生效）</button>
+    <p style="color:green; margin-top:20px;" id="msg"></p>
+  </div>
+</div>
+
+<script>
+  const correctPwd = "bdm2025";
+  document.getElementById('password').addEventListener('change', function(){
+    if(this.value === correctPwd) {
+      document.getElementById('panel').style.display = 'block';
+      this.style.display = 'none';
+      loadCurrent();
+    } else {
+      alert('密码错误');
+    }
+  });
+
+  // 预览图片
+  function previewImage(inputId, previewId) {
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    input.onchange = e => {
+      const file = e.target.files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = ev => preview.src = ev.target.result;
+        reader.readAsDataURL(file);
+      }
+    }
+  }
+  previewImage('hero1','hero1-preview');
+  previewImage('about','about-preview');
+
+  // 多图预览
+  document.getElementById('gallery-files').onchange = function(e){
+    const container = document.getElementById('gallery-previews');
+    container.innerHTML = '';
+    [...e.target.files].forEach(file => {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        const img = document.createElement('img');
+        img.src = ev.target.result;
+        img.style.width = '150px';
+        img.style.height = '150px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '10px';
+        container.appendChild(img);
+      }
+      reader.readAsDataURL(file);
+    });
+  };
+
+  // 保存到本地存储（浏览器永久保存，无需服务器）
+  function saveAll(){
+    const data = JSON.parse(localStorage.getItem('bdm-website-data') || '{}');
+
+    // Hero
+    const heroInput = document.getElementById('hero1');
+    if(heroInput.files[0]){
+      const reader = new FileReader();
+      reader.onload = e => {
+        data.hero1 = e.target.result;
+        continueSave();
+      }
+      reader.readAsDataURL(heroInput.files[0]);
+    }
+
+    // About
+    const aboutInput = document.getElementById('about');
+    if(aboutInput.files[0]){
+      const reader = new FileReader();
+      reader.onload = e => { data.aboutImg = e.target.result; continueSave(); }
+      reader.readAsDataURL(aboutInput.files[0]);
+    }
+
+    // Gallery
+    const galleryInput = document.getElementById('gallery-files');
+    if(galleryInput.files.length > 0){
+      data.gallery = [];
+      let count = 0;
+      [...galleryInput.files].forEach(file => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          data.gallery.push(e.target.result);
+          count++;
+          if(count === galleryInput.files.length) continueSave();
+        }
+        reader.readAsDataURL(file);
+      });
+    } else {
+      continueSave();
+    }
+
+    function continueSave(){
+      localStorage.setItem('bdm-website-data', JSON.stringify(data));
+      document.getElementById('msg').innerText = '所有图片已保存！刷新首页即可看到效果～';
+    }
+  }
+
+  // 加载已有图片
+  function loadCurrent(){
+    const saved = localStorage.getItem('bdm-website-data');
+    if(saved){
+      const data = JSON.parse(saved);
+      if(data.hero1) document.getElementById('hero1-preview').src = data.hero1;
+      if(data.aboutImg) document.getElementById('about-preview').src = data.aboutImg;
+    }
+  }
+</script>
+</body>
+</html>
